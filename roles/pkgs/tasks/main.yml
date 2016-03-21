@@ -1,0 +1,22 @@
+- name: install common packages
+  become: yes
+  apt: pkg={{ item }} state=latest update_cache=yes
+  with_items:
+    - autoconf
+    - git
+    - libtool
+    - make
+  when: ansible_os_family == "Debian"
+
+- name: install packages needed by iRODS
+  become: yes
+  apt: pkg={{ item }} state=latest update_cache=yes
+  with_items:
+    - python-psutil
+    - python-jsonschema
+    - unixodbc-dev
+    - help2man 
+    - libxml2-dev 
+    - libjson-perl 
+    - libjson-perl
+  when: ansible_os_family == "Debian"

@@ -1,0 +1,3 @@
+- hosts: container
+  roles:
+  - pkgs
