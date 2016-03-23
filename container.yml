@@ -1,4 +1,4 @@
 - hosts: container
   roles:
   - pkgs
-  - clone-repo
+  - get-repo

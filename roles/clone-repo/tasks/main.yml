@@ -1,3 +1,0 @@
-- name: clone git repo
-  become: yes
-  git: repo=https://github.com/irods/irods.git dest=/opt recursive=yes

@@ -1,0 +1,9 @@
+- name: clone git repo
+  become: yes
+  git: repo=https://github.com/irods/irods.git dest=/opt/irods recursive=yes
+
+- name: build
+  become: yes
+  command: ./packaging/build.sh --run-in-place icat postgres arg1
+  args:
+    chdir: /opt/irods
