@@ -3,6 +3,7 @@
   apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
     - autoconf
+    - curl
     - git
     - libtool
     - make
@@ -16,7 +17,14 @@
     - python-jsonschema
     - unixodbc-dev
     - help2man 
+    - libfuse-dev 
+    - libcurl4-gnutls-dev 
+    - libbz2-dev 
+    - zlib1g-dev 
+    - libpam0g-dev 
+    - libssl-dev 
+    - libkrb5-dev 
+    - libfuse2
     - libxml2-dev 
     - libjson-perl 
-    - libjson-perl
   when: ansible_os_family == "Debian"
