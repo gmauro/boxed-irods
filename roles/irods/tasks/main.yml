@@ -11,6 +11,7 @@
     - libfuse2
     - libjson-perl
     - lsof
+    - supervisor
   when: ansible_os_family == "Debian"
 
 - name: download irods
