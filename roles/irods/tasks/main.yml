@@ -1,0 +1,35 @@
+- name: install packages needed by iRODS
+  become: yes
+  apt: pkg={{ item }} state=latest update_cache=yes
+  with_items:
+    - python-psutil
+    - python-jsonschema
+    - unixodbc
+    - odbc-postgresql
+    - postgresql-client
+    - super
+    - libfuse2
+    - libjson-perl
+    - lsof
+  when: ansible_os_family == "Debian"
+
+- name: download irods
+  get_url: url={{ IRODSFTP }}/releases/{{ IRODSVERSION }}/ubuntu14/{{ item }} dest=/tmp
+  with_items:
+    - irods-icat-4.1.8-ubuntu14-x86_64.deb
+    - irods-database-plugin-postgres-1.8-ubuntu14-x86_64.deb
+
+- name: install irods packages
+  become: yes
+  shell: dpkg -iE *.deb
+  args:
+    chdir: /tmp/
+
+- name: copy answers
+  template: src=answers.sh.j2 dest=/tmp/answers.sh mode=0755
+
+- name: create answers
+  command: /tmp/answers.sh /tmp/answers
+
+- name: configure irods
+  shell: /var/lib/irods/packaging/setup_irods.sh < /tmp/answers

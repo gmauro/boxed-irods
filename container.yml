@@ -1,4 +1,0 @@
-- hosts: container
-  roles:
-  - pkgs
-  - get-repo

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage $0 SCRIPT_NAME"
+    exit 1
+fi
+
+#Clean
+SCRIPT=$1
+rm -rf $SCRIPT && touch $SCRIPT
+# account
+echo '{{ IRODS_SERVICE_ACCOUNT }}' >> $SCRIPT
+# group
+echo "{{ IRODS_SERVICE_ACCOUNT }}" >> $SCRIPT
+#zone
+echo "{{ IRODS_ZONE }}" >> $SCRIPT
+# port
+echo "{{ IRODS_PORT }}" >> $SCRIPT
+# range begin
+echo "20000" >> $SCRIPT
+# range end
+echo "20199" >> $SCRIPT
+# vault
+echo "{{ IRODS_VAULT }}" >> $SCRIPT
+# zone key
+echo 'koB5A69Fs9FZX2I5' >> $SCRIPT
+# negotation key
+echo 'LOZt4ZbS_FKVTN67OfSrPcxHRoTkHXk6' >> $SCRIPT
+# control plane port
+echo "1248" >> $SCRIPT
+# control plane key
+echo 'cAZRqT1EE1MqJ0Fkl4Xq8JFYqinIPk3V' >> $SCRIPT
+# schema
+echo "https://schemas.irods.org/configuration" >> $SCRIPT
+# account username
+echo "{{ IRODS_ADMIN }}" >> $SCRIPT
+# account password
+echo "{{IRODS_ADMIN_PASSWORD}}" >> $SCRIPT
+# Last confirmation
+echo "yes" >> $SCRIPT
+
+##############################
+# DB accounting
+
+# server host name
+echo "{{ db_host }}" >> $SCRIPT
+# db port
+echo "{{ db_port }}" >> $SCRIPT
+# database name
+echo "{{ db_name }}" >> $SCRIPT
+# database username
+echo "{{ db_user }}" >> $SCRIPT
+# database password
+echo "{{ db_password }}" >> $SCRIPT
+# Last confirmation
+echo "yes" >> $SCRIPT
+
+echo "DONE"

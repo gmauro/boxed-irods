@@ -1,0 +1,4 @@
+- hosts: icat
+  roles:
+  - postgresql
+  - irods
