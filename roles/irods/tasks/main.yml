@@ -13,10 +13,13 @@
     - lsof
   when: ansible_os_family == "Debian"
 
+- name: create irods user
+  user: name={{ IRODS_SERVICE_ACCOUNT }} password={{ PASSWORD }} update_password=always shell=/bin/bash home=/home/{{ IRODS_SERVICE_ACCOUNT }} groups=sudo append=yes
+
 - name: download irods
   get_url: url={{ IRODSFTP }}/releases/{{ IRODSVERSION }}/ubuntu14/{{ item }} dest=/tmp
   with_items:
-    - irods-icat-4.1.8-ubuntu14-x86_64.deb
+    - irods-icat-{{ IRODSVERSION }}-ubuntu14-x86_64.deb
     - irods-database-plugin-postgres-1.8-ubuntu14-x86_64.deb
 
 - name: install irods packages

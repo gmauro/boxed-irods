@@ -35,7 +35,7 @@ echo "https://schemas.irods.org/configuration" >> $SCRIPT
 # account username
 echo "{{ IRODS_ADMIN }}" >> $SCRIPT
 # account password
-echo "{{IRODS_ADMIN_PASSWORD}}" >> $SCRIPT
+echo "{{ PASSWORD }}" >> $SCRIPT
 # Last confirmation
 echo "yes" >> $SCRIPT
 
@@ -43,15 +43,15 @@ echo "yes" >> $SCRIPT
 # DB accounting
 
 # server host name
-echo "{{ db_host }}" >> $SCRIPT
+echo "{{ DB_HOST }}" >> $SCRIPT
 # db port
-echo "{{ db_port }}" >> $SCRIPT
+echo "{{ DB_PORT }}" >> $SCRIPT
 # database name
-echo "{{ db_name }}" >> $SCRIPT
+echo "{{ DB_NAME }}" >> $SCRIPT
 # database username
-echo "{{ db_user }}" >> $SCRIPT
+echo "{{ DB_USER }}" >> $SCRIPT
 # database password
-echo "{{ db_password }}" >> $SCRIPT
+echo "{{ PASSWORD }}" >> $SCRIPT
 # Last confirmation
 echo "yes" >> $SCRIPT
 
