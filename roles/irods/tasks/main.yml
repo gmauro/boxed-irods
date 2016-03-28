@@ -14,7 +14,7 @@
   when: ansible_os_family == "Debian"
 
 - name: create irods user
-  user: name={{ IRODS_SERVICE_ACCOUNT }} password={{ PASSWORD }} update_password=always shell=/bin/bash home=/home/{{ IRODS_SERVICE_ACCOUNT }} groups=sudo append=yes
+  user: name={{ IRODS_SERVICE_ACCOUNT }} password={{ ENC_PASSWORD }} update_password=always shell=/bin/bash home=/home/{{ IRODS_SERVICE_ACCOUNT }} groups=sudo append=yes
 
 - name: download irods
   get_url: url={{ IRODSFTP }}/releases/{{ IRODSVERSION }}/ubuntu14/{{ item }} dest=/tmp

@@ -6,7 +6,7 @@ DB_PORT: 5432
 DB_NAME: ICAT
 DB_USER: irods
 
-PASSWORD: irods
+PASSWORD: irods123
 # created with:
 # python -c 'import crypt; print crypt.crypt("irods123", "irods")'
 ENC_PASSWORD: irskGbu5VMf0E
