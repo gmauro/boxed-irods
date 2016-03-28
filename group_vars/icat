@@ -1,4 +1,5 @@
-IRODSVERSION: 4.1.8
+IRODSVERSION: "{{ lookup('env','IRODSVERSION') }}"
+IRODSPLUGINSVERSION: "{{ lookup('env','IRODSPLUGINSVERSION') }}"
 IRODSFTP: "ftp://ftp.renci.org/pub/irods"
 
 DB_HOST: localhost
