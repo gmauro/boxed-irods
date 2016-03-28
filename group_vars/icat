@@ -1,7 +1,7 @@
 IRODSVERSION: 4.1.8
 IRODSFTP: "ftp://ftp.renci.org/pub/irods"
 
-DB_HOST: pgserver
+DB_HOST: localhost
 DB_PORT: 5432
 DB_NAME: ICAT
 DB_USER: irods
