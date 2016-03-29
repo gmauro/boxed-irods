@@ -2,6 +2,8 @@ IRODSVERSION: "{{ lookup('env','IRODSVERSION') }}"
 IRODSPLUGINSVERSION: "{{ lookup('env','IRODSPLUGINSVERSION') }}"
 IRODSFTP: "ftp://ftp.renci.org/pub/irods"
 
+HOSTNAME: irodserver
+
 DB_HOST: localhost
 DB_PORT: 5432
 DB_NAME: ICAT
