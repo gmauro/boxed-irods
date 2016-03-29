@@ -33,9 +33,7 @@
   command: /tmp/answers.sh /tmp/answers
 
 - name: Set Hostname with hostname command
-  become: yes
-  become_user: root
-  hostname: name="{{ HOSTNAME }}"
+  shell:  hostname {{ HOSTNAME }}
 
 - name: configure irods
   shell: /var/lib/irods/packaging/setup_irods.sh < /tmp/answers
