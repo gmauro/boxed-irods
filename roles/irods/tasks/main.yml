@@ -1,5 +1,4 @@
 - name: install packages needed by iRODS
-  become: yes
   apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
     - python-psutil
@@ -23,7 +22,6 @@
     - irods-database-plugin-postgres-{{ IRODSPLUGINSVERSION }}-ubuntu14-x86_64.deb
 
 - name: install irods packages
-  become: yes
   shell: dpkg -iE *.deb
   args:
     chdir: /tmp/
@@ -35,7 +33,7 @@
   command: /tmp/answers.sh /tmp/answers
 
 - name: Set Hostname with hostname command
-  become: yes
+  become_user: root
   hostname: name="{{ HOSTNAME }}"
 
 - name: configure irods

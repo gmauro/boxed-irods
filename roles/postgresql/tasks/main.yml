@@ -7,7 +7,6 @@
     - libssl-doc
 
 - name: install packages needed by Postgres
-  become: yes
   apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
     - python-psycopg2
@@ -16,14 +15,12 @@
     - postgresql
 
 - name: ensure that postgresql is started
-  become: yes
   service: name=postgresql state=running enabled=yes
 
 - name: Ensure a locale exists.
   locale_gen: name=en_US.UTF-8 state=present
 
 - name: Ensure database is created
-  become: yes
   become_user: postgres
   postgresql_db: name={{ DB_NAME }}
                  encoding='UTF-8'
@@ -33,7 +30,6 @@
                  state=present
 
 - name: Ensure user has access to the database
-  become: yes
   become_user: postgres
   postgresql_user: db={{ DB_NAME }}
                    name={{ DB_USER }}
@@ -42,7 +38,6 @@
                    state=present
 
 - name: Ensure user does not have unnecessary privileges
-  become: yes
   become_user: postgres
   postgresql_user: name={{ DB_USER }}
                    role_attr_flags=NOSUPERUSER,NOCREATEDB
