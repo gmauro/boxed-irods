@@ -33,6 +33,7 @@
   command: /tmp/answers.sh /tmp/answers
 
 - name: Set Hostname with hostname command
+  become: yes
   become_user: root
   hostname: name="{{ HOSTNAME }}"
 
