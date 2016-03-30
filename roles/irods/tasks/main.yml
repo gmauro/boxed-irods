@@ -33,4 +33,4 @@
   command: /tmp/answers.sh /tmp/answers
 
 - name: configure irods
-  shell: /var/lib/irods/packaging/setup_irods.sh < /tmp/answers
+  shell: export LOCAL_HOST_NAME={{ HOSTNAME }}; /var/lib/irods/packaging/setup_irods.sh < /tmp/answers
