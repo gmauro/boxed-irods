@@ -32,11 +32,5 @@
 - name: create answers
   command: /tmp/answers.sh /tmp/answers
 
-- name: Set Hostname with hostname command
-  become: yes
-  become_method: su
-  become_user: root
-  shell:  hostname {{ HOSTNAME }}
-
 - name: configure irods
   shell: /var/lib/irods/packaging/setup_irods.sh < /tmp/answers
