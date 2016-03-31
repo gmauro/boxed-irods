@@ -1,7 +1,7 @@
-IRODSVERSION: "{{ lookup('env','IRODSVERSION', default='4.1.8') }}"
-IRODSPLUGINSVERSION: "{{ lookup('env','IRODSPLUGINSVERSION', default='1.8') }}"
-IRODSFTP: "{{ lookup('env', 'IRODSFTP', default='ftp://ftp.renci.org/pub/irods') }}"
-IRODSHOSTNAME: "{{ lookup('env', 'IRODSHOSTNAME', default=irodserver) }}"
+IRODSVERSION: "{{ lookup('env','IRODSVERSION') == '' | ternary('4.1.8', lookup('env','IRODSVERSION')) }}"
+IRODSPLUGINSVERSION: "{{ lookup('env','IRODSPLUGINSVERSION') == '' | ternary('1.8', lookup('env','IRODSPLUGINSVERSION')) }}"
+IRODSFTP: "{{ lookup('env', 'IRODSFTP') | ternary('ftp://ftp.renci.org/pub/irods', lookup('env','IRODSFTP')) }}"
+IRODSHOSTNAME: "{{ lookup('env', 'IRODSHOSTNAME')  == '' | ternary('irodserver', lookup('env','IRODSHOSTNAME')) }}"
 
 DB_HOST: localhost
 DB_PORT: 5432
