@@ -1,5 +1,5 @@
 - name: Ensure bash, OpenSSl, and libssl are the latest versions
-  apt: name={{ item }} update_cache=true state=latest
+  apt: name={{ item }} update_cache=yes state=latest
   with_items:
     - bash
     - openssl
@@ -7,7 +7,7 @@
     - libssl-doc
 
 - name: install packages needed by Postgres
-  apt: pkg={{ item }} state=latest update_cache=yes
+  apt: name={{ item }} state=latest update_cache=yes
   with_items:
     - python-psycopg2
     - postgresql-contrib
@@ -30,7 +30,7 @@
                  template='template0'
                  state=present
 
-- name: Ensure user has access to the database
+- name: Ensure user have access to the database
   become: yes
   become_user: postgres
   postgresql_user: db={{ DB_NAME }}
