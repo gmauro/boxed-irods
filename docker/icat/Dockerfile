@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Add VOLUMEs to allow backup of config, logs and databases
-VOLUME  ["/etc", "/home", "/var/log", "/var/lib"]
+VOLUME ["/etc", "/home", "/var/log", "/var/lib"]
 
 EXPOSE 1247
 
