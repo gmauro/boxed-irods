@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV IRODSVERSION 4.1.8
 ENV IRODSPLUGINSVERSION 1.8
 ENV IRODSFTP ftp://ftp.renci.org/pub/irods
+ENV IRODS_SERVICE_ACCOUNT irods
 
 ENV DB_HOST localhost
 
@@ -24,3 +25,6 @@ VOLUME ["/etc", "/home", "/var/log", "/var/lib"]
 EXPOSE 1247
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
+WORKDIR /home/$IRODS_SERVICE_ACCOUNT
+USER $IRODS_SERVICE_ACCOUNT

@@ -13,7 +13,7 @@ PASSWORD: irods123
 # python -c 'import crypt; print crypt.crypt("irods123", "irods")'
 ENC_PASSWORD: irskGbu5VMf0E
 
-IRODS_SERVICE_ACCOUNT: irods
+IRODS_SERVICE_ACCOUNT: "{{ lookup('env','IRODS_SERVICE_ACCOUNT') | default('irods', boolean=True) }}"
 IRODS_ZONE: tempZone
 IRODS_PORT: 1247
 IRODS_VAULT: /var/lib/irods/Vault
