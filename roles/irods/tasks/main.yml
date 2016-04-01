@@ -26,6 +26,9 @@
   args:
     chdir: /tmp/
 
+- name: remove pkgs
+  command: rm -f /tmp/*.deb
+
 - name: copy irods install script
   template: src=install.sh.j2 dest=/install mode=0755
 
