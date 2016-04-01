@@ -33,5 +33,5 @@
   template: src=answers.sh.j2 dest={{ ANSWERS_SCRIPT_PATH }} mode=0755
 
 - name: create answers
-  command: {{ ANSWERS_SCRIPT_PATH }} {{ ANSWERS_PATH }}
+  command: "{{ ANSWERS_SCRIPT_PATH }} {{ ANSWERS_PATH }}"
 
