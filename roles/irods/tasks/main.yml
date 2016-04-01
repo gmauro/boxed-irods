@@ -26,11 +26,12 @@
   args:
     chdir: /tmp/
 
+- name: copy irods install script
+  template: src=install.sh.j2 dest=/install mode=0755
+
 - name: copy answers
-  template: src=answers.sh.j2 dest=/tmp/answers.sh mode=0755
+  template: src=answers.sh.j2 dest={{ ANSWERS_SCRIPT_PATH }} mode=0755
 
 - name: create answers
-  command: /tmp/answers.sh /tmp/answers
+  command: {{ ANSWERS_SCRIPT_PATH }} {{ ANSWERS_PATH }}
 
-- name: configure irods
-  shell: /var/lib/irods/packaging/setup_irods.sh < /tmp/answers

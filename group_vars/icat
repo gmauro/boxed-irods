@@ -18,3 +18,5 @@ IRODS_PORT: 1247
 IRODS_VAULT: /var/lib/irods/Vault
 IRODS_ADMIN: rods
 
+ANSWERS_PATH: /tmp/answers
+ANSWERS_SCRIPT_PATH: /tmp/answers.sh

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# iRODS setup
+/var/lib/irods/packaging/setup_irods.sh < {{ ANSWERS_PATH }}
+
+if [ "$?" == "0" ]; then
+    echo "iRODS installed!"
+else
+    echo "Failed to install iRODS..."
+    exit 1
+fi
