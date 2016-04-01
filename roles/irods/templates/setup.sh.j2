@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 if [ "{{ DB_HOST }}" == "localhost" ]; then
-   /etc/init.d/postgresql start
+   sudo /etc/init.d/postgresql start
 fi
 
 # iRODS setup
-/var/lib/irods/packaging/setup_irods.sh < {{ ANSWERS_PATH }}
+sudo /var/lib/irods/packaging/setup_irods.sh < {{ ANSWERS_PATH }}
 
 if [ "$?" == "0" ]; then
     echo "iRODS installed!"
@@ -15,5 +15,5 @@ else
 fi
 
 # IUSER setup
-su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin mkuser {{ IUSER }} rodsuser'
-su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin moduser {{ IUSER }} password {{ PASSWORD }}
+iadmin mkuser {{ IUSER }} rodsuser
+iadmin moduser {{ IUSER }} password {{ PASSWORD }}
