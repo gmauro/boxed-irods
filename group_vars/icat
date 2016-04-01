@@ -2,7 +2,7 @@ IRODSVERSION: "{{ lookup('env','IRODSVERSION') | default('4.1.8', boolean=True) 
 IRODSPLUGINSVERSION: "{{ lookup('env','IRODSPLUGINSVERSION') | default('1.8', boolean=True) }}"
 IRODSFTP: "{{ lookup('env', 'IRODSFTP') | default('ftp://ftp.renci.org/pub/irods', boolean=True) }}"
 
-DB_HOST: localhost
+DB_HOST: "{{ lookup('env','DB_HOST') | default('localhost', boolean=True) }}"
 DB_PORT: 5432
 DB_NAME: ICAT
 DB_USER: irods

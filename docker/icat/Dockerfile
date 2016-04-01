@@ -7,7 +7,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV IRODSVERSION 4.1.8
 ENV IRODSPLUGINSVERSION 1.8
 ENV IRODSFTP ftp://ftp.renci.org/pub/irods
-ENV IRODSHOSTNAME irodserver
+
+ENV DB_HOST localhost
 
 RUN git clone https://github.com/gmauro/irods-in_place /tmp/irods-in_place
 WORKDIR /tmp/irods-in_place
