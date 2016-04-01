@@ -13,3 +13,7 @@ else
     echo "Failed to install iRODS..."
     exit 1
 fi
+
+# IUSER setup
+su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin mkuser {{ IUSER }} rodsuser'
+su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin moduser {{ IUSER }} password {{ PASSWORD }}
