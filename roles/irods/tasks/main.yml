@@ -15,14 +15,6 @@
 - name: create irods user
   user: name={{ IRODS_SERVICE_ACCOUNT }} password={{ ENC_PASSWORD }} update_password=always shell=/bin/bash home=/home/{{ IRODS_SERVICE_ACCOUNT }} groups=sudo append=yes
 
-- name: set env variable to force hostname
-  lineinfile: dest=/home/irods/.profile line="export LOCAL_HOST_NAME={{ IRODSHOSTNAME }}"
-  when: ansible_virtualization_type == "docker"
-
-- name: add hostname to /etc/hosts
-  shell: echo "127.0.0.1 localhost {{ IRODSHOSTNAME }}" >> /etc/hosts
-  when: ansible_virtualization_type == "docker"
-
 - name: download irods
   get_url: url={{ IRODSFTP }}/releases/{{ IRODSVERSION }}/ubuntu14/{{ item }} dest=/tmp
   with_items:
