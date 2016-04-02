@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# IUSER setup
+iadmin mkuser {{ IUSER }} rodsuser
+iadmin moduser {{ IUSER }} password {{ PASSWORD }}
