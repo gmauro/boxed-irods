@@ -46,3 +46,6 @@
 
 - name: create answers
   command: "{{ ANSWERS_SCRIPT_PATH }} {{ ANSWERS_PATH }}"
+
+- name: set irods dir ownership
+  file: path=/var/lib/irods owner={{ IRODS_SERVICE_ACCOUNT }} group={{ IRODS_SERVICE_ACCOUNT }} state=directory recurse=yes
