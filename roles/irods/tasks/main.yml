@@ -31,6 +31,7 @@
 
 - name: remove irods packages
   file: src=/tmp/{{ item }} state=absent
+  with_items:
     - irods-icat-{{ IRODSVERSION }}-ubuntu14-x86_64.deb
     - irods-database-plugin-postgres-{{ IRODSPLUGINSVERSION }}-ubuntu14-x86_64.deb
 
