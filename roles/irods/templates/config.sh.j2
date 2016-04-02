@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 # IUSER setup
-iadmin mkuser {{ IUSER }} rodsuser
-iadmin moduser {{ IUSER }} password {{ PASSWORD }}
+su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin mkuser {{ IUSER }} rodsuser'
+su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin moduser {{ IUSER }} password {{ PASSWORD }}'

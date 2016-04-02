@@ -21,8 +21,6 @@ VOLUME ["/etc", "/home", "/var/log", "/var/lib"]
 EXPOSE 1247
 
 RUN apt-get update && apt-get install -y supervisor
+RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
-
-WORKDIR /home/$IRODS_SERVICE_ACCOUNT
-USER $IRODS_SERVICE_ACCOUNT

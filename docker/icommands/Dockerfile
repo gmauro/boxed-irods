@@ -13,6 +13,7 @@ WORKDIR /tmp/irods-in_place
 RUN ansible-playbook icommands.yml
 
 RUN apt-get update && apt-get install -y supervisor
+RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 

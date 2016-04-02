@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 if [ "{{ DB_HOST }}" == "localhost" ]; then
-   sudo /etc/init.d/postgresql start
+   /etc/init.d/postgresql start
 fi
 
 # iRODS setup
-sudo /var/lib/irods/packaging/setup_irods.sh < {{ ANSWERS_PATH }}
+/var/lib/irods/packaging/setup_irods.sh < {{ ANSWERS_PATH }}
 
 if [ "$?" == "0" ]; then
     echo "iRODS installed!"
