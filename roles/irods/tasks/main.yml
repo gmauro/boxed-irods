@@ -15,7 +15,10 @@
 - name: create irods user
   user: name={{ IRODS_SERVICE_ACCOUNT }} password={{ ENC_PASSWORD }} update_password=always shell=/bin/bash home=/home/{{ IRODS_SERVICE_ACCOUNT }} groups=sudo append=yes
 
-- name: download irods
+- name: copy irods user sudoers config
+  template: src=sudoers.j2 dest=/etc/sudoers.d/irods mode=0440
+
+- name: download irods packages
   get_url: url={{ IRODSFTP }}/releases/{{ IRODSVERSION }}/ubuntu14/{{ item }} dest=/tmp
   with_items:
     - irods-icat-{{ IRODSVERSION }}-ubuntu14-x86_64.deb
@@ -26,8 +29,13 @@
   args:
     chdir: /tmp/
 
-- name: remove pkgs
-  command: rm -f /tmp/*.deb
+- name: remove irods packages
+  file: src=/tmp/{{ item }} state=absent
+    - irods-icat-{{ IRODSVERSION }}-ubuntu14-x86_64.deb
+    - irods-database-plugin-postgres-{{ IRODSPLUGINSVERSION }}-ubuntu14-x86_64.deb
+
+- name: copy irods config script
+  template: src=config.sh.j2 dest=/irods_config mode=0755
 
 - name: copy irods setup script
   template: src=setup.sh.j2 dest=/irods_setup mode=0755
