@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Ensures that postgresql and irods services are running
+if [ "{{ DB_HOST }}" == "localhost" ]; then
+   service postgresql start
+   sleep 7
+fi
+service irods start
+
 # IUSER setup
 su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin mkuser {{ IUSER }} rodsuser'
 su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin moduser {{ IUSER }} password {{ PASSWORD }}'

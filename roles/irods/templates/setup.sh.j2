@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 if [ "{{ DB_HOST }}" == "localhost" ]; then
-   /etc/init.d/postgresql start
+   service postgresql start
+   sleep 7
 fi
 
 # iRODS setup
