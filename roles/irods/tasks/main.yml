@@ -39,7 +39,7 @@
   template: src=config.sh.j2 dest=/irods_config mode=0755
 
 - name: copy irods setup script
-  template: src=setup.sh.j2 dest=/irods_setup mode=0755
+  template: src=setup.sh.j2 dest=/irods_first_setup mode=0755
 
 - name: copy answers
   template: src=answers.sh.j2 dest={{ ANSWERS_SCRIPT_PATH }} mode=0755
