@@ -1,8 +1,75 @@
 iRODS-in_place
 ==============
 
-Latest iRODS build from source and executed from the same directory, enabled by Ansible.
+iCAT server, installed from iRODS binaries, and postgresql server executed from
+ the same host; everything enabled by Ansible.
+
+This repository contains also Dockerfile for iRODS automated
+build published to the Docker Hub Registry.
 
 Useful for testing/development.
 
-https://docs.irods.org/4.1.0/manual/installation/#run-in-place
+# Docker images
+
+Docker images of two containers are available at Docker hub:
+
+iCAT server using local postgresql
+
+https://hub.docker.com/r/gmauro/irods-in_place/
+
+iCommands client
+
+https://hub.docker.com/r/gmauro/icommands/
+
+## Requirements
+
+You need [docker-engine](https://docs.docker.com/engine/installation/) and
+[docker-compose](https://docs.docker.com/compose/install/)
+
+## Quickstart
+
+Clone the repository: `git clone https://github.com/gmauro/irods-in_place.git`
+
+Cd into the docker directory: `cd irods-in_place/docker`
+
+Pull containers images fro the hub: `./dcomp.sh pull`
+
+Do the first setup of iRODS: `./dcomp.sh run irods /irods_first_setup`
+
+Configure iRODs account for a rodsuser (default username: iuser): `./dcomp.sh
+ run irods /irods_config`
+
+Bring up the containers: `./dcomp.sh up -d`
+
+Open a bash shell into the icommands container: `docker exec run -ti
+icommands /bin/bash`
+
+Init the iRODS environment of the user: `iinit`
+
+### Default values
+
+iRODS version: 4.1.8
+
+iRODS service account: irods
+
+iRODS zone: tempZone
+
+iRODS port: 1247
+
+iRODS admin: rods
+
+iRODS user: iuser
+
+db host: localhost
+
+db port: 5432
+
+db name: ICAT
+
+db user: irods
+
+password (for everything): irods123
+
+## Acknowledgments
+
+The work of [pdonorio](https://github.com/pdonorio) at https://github.com/EUDAT-B2STAGE/docker-images has been very useful.
