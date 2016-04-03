@@ -10,3 +10,4 @@ service irods start
 # IUSER setup
 su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin mkuser {{ IUSER }} rodsuser'
 su - {{ IRODS_SERVICE_ACCOUNT }} -c 'iadmin moduser {{ IUSER }} password {{ PASSWORD }}'
+echo "{{ IUSER }} setup ended"
