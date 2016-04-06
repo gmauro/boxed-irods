@@ -9,22 +9,22 @@ services:
     links:
         - irods:irodserver
   irods:
-    image: gmauro/irods-in_place
+    image: gmauro/boxed-irods
     hostname: irodserver
-    container_name: irods-in_place
+    container_name: boxed-irods
     ports:
         - 1247:1247
     volumes:
-        - irods-in_place_etc:/etc
-        - irods-in_place_home:/home
-        - irods-in_place_var:/var/lib
+        - boxed-irods_etc:/etc
+        - boxed-irods_home:/home
+        - boxed-irods_var:/var/lib
 
 volumes:
    icommands_home:
      driver: local
-   irods-in_place_etc:
+   boxed-irods_etc:
      driver: local
-   irods-in_place_home:
+   boxed-irods_home:
      driver: local
-   irods-in_place_var:
+   boxed-irods_var:
      driver: local

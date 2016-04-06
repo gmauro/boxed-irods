@@ -8,8 +8,8 @@ ENV IRODSVERSION 4.1.8
 ENV IRODSFTP ftp://ftp.renci.org/pub/irods
 ENV IUSER iuser
 
-RUN git clone https://github.com/gmauro/irods-in_place /tmp/irods-in_place
-WORKDIR /tmp/irods-in_place
+RUN git clone https://github.com/gmauro/boxed-irods /tmp/boxed-irods
+WORKDIR /tmp/boxed-irods
 RUN ansible-playbook icommands.yml
 
 RUN apt-get update && apt-get install -y supervisor

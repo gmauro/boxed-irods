@@ -11,8 +11,8 @@ ENV IRODS_SERVICE_ACCOUNT irods
 
 ENV DB_HOST localhost
 
-RUN git clone https://github.com/gmauro/irods-in_place /tmp/irods-in_place
-WORKDIR /tmp/irods-in_place
+RUN git clone https://github.com/gmauro/boxed-irods /tmp/boxed-irods
+WORKDIR /tmp/boxed-irods
 RUN ansible-playbook icat.yml
 
 # Add VOLUMEs to allow backup of config, logs and databases

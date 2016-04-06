@@ -1,4 +1,4 @@
-iRODS-in_place
+boxed-irods
 ==============
 
 iCAT server, installed from iRODS binaries, and postgresql server executed from
@@ -15,7 +15,7 @@ Docker images of two containers are available at Docker hub:
 
 iCAT server using local postgresql
 
-https://hub.docker.com/r/gmauro/irods-in_place/
+https://hub.docker.com/r/gmauro/boxed-irods/
 
 iCommands client
 
@@ -28,9 +28,9 @@ You need [docker-engine](https://docs.docker.com/engine/installation/) and
 
 ## Quickstart
 
-Clone the repository: `git clone https://github.com/gmauro/irods-in_place.git`
+Clone the repository: `git clone https://github.com/gmauro/boxed-irods.git`
 
-Cd into the docker directory: `cd irods-in_place/docker`
+Cd into the docker directory: `cd boxed-irods/docker`
 
 Pull containers images fro the hub: `./dcomp.sh pull`
 
