@@ -1,5 +1,6 @@
 boxed-irods
-==============
+===========
+[![TravisCI](https://api.travis-ci.org/gmauro/boxed-irods.svg?branch=master)](https://travis-ci.org/gmauro/boxed-irods)
 
 iCAT server, installed from iRODS binaries, and postgresql server executed from
  the same host; everything enabled by Ansible.
