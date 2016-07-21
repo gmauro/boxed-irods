@@ -18,4 +18,4 @@ before_install:
   - docker-compose -f docker/docker-compose.yml run irods /irods_first_setup
 
 script:
-  - docker-compose up -d
+  - docker-compose -f docker/docker-compose.yml up -d
