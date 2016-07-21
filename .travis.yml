@@ -4,6 +4,16 @@ python: 2.7
 services:
  - docker
 
+env:
+  DOCKER_COMPOSE_VERSION: 1.7.1
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose -f docker/docker-compose.yml pull
+  - docker-compose -f docker/docker-compose.yml run irods /irods_first_setup
+
 script:
-  - docker build -t icat -f docker/icat/Dockerfile .
-  - docker build -t icat -f docker/icommands/Dockerfile .
+  - docker-compose up -d
