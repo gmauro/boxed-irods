@@ -1,0 +1,9 @@
+language: python
+python: 2.7
+
+services:
+ - docker
+
+script:
+  - docker build -t icat -f docker/icat/Dockerfile .
+  - docker build -t icat -f docker/icommands/Dockerfile .
