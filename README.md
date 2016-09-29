@@ -24,8 +24,7 @@ https://hub.docker.com/r/gmauro/icommands/
 
 ## Requirements
 
-You need [docker-engine](https://docs.docker.com/engine/installation/) and
-[docker-compose](https://docs.docker.com/compose/install/)
+You need [docker-engine](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
 
 ## Quickstart
 
@@ -41,6 +40,8 @@ Configure iRODs account for a rodsuser (default username: iuser): `./dcomp.sh
  run irods /irods_config`
 
 Bring up the containers: `./dcomp.sh up -d`
+
+### How to use  iRODS icommands 
 
 Open a bash shell into the icommands container: `docker exec run -ti
 icommands /bin/bash`
