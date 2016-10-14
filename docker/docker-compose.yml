@@ -1,6 +1,7 @@
 version: '2'
 services:
   icommands:
+    build: ./icommands
     image: gmauro/icommands
     hostname: icommands
     container_name: icommands
@@ -9,6 +10,7 @@ services:
     links:
         - irods:irodserver
   irods:
+    build: ./icat
     image: gmauro/boxed-irods
     hostname: irodserver
     container_name: boxed-irods
