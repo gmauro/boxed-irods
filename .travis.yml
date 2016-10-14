@@ -14,7 +14,7 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - docker-compose -f docker/docker-compose.yml pull
+  - docker-compose -f docker/docker-compose.yml build --no-cache
   - docker-compose -f docker/docker-compose.yml run irods /irods_first_setup
 
 script:
