@@ -18,4 +18,4 @@
     chdir: /tmp/
 
 - name: remove pkgs
-  command: rm -f /tmp/*.deb
+  file: path=/tmp/*.deb state=absent
