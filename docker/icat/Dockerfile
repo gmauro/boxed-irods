@@ -1,5 +1,5 @@
 # Based on gmauro/ubuntu-ansible
-FROM gmauro/ubuntu-ansible
+FROM gmauro/ansible:2.1-ubuntu
 MAINTAINER Gianmauro Cuccuru <gmauro@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
