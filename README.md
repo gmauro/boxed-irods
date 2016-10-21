@@ -43,7 +43,7 @@ Bring up the containers: `./dcomp.sh up -d`
 
 ### How to use  iRODS icommands 
 
-Open a bash shell into the icommands container: `docker exec run -ti
+Open a bash shell into the icommands container: `docker exec -ti
 icommands /bin/bash`
 
 Init the iRODS environment of the user: `iinit`
