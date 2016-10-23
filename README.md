@@ -34,9 +34,11 @@ Cd into the docker directory: `cd boxed-irods/docker`
 
 Pull containers images fro the hub: `./dcomp.sh pull`
 
-Do the first setup of iRODS: `./dcomp.sh run irods /irods_first_setup`
+Only the first time: 
 
-Configure iRODs account for a rodsuser (default username: iuser): `./dcomp.sh
+ * Do the first setup of iRODS: `./dcomp.sh run irods /irods_first_setup`
+
+ * Configure iRODs account (default username: iuser, type: rodsuser): `./dcomp.sh
  run irods /irods_config`
 
 Bring up the containers: `./dcomp.sh up -d`
